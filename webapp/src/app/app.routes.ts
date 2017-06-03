@@ -8,6 +8,8 @@ import {UsuariosComponent} from './usuarios/usuarios.component';
 import {RegisterComponent} from './register/register.component';
 import {RevisaoComponent} from './revisao/revisao.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {SetorComponent} from './setor/setor.component';
+import {AprovadorComponent} from './aprovador/aprovador.component';
 
 const routes: Routes = [
   // logged routes
@@ -28,8 +30,23 @@ const routes: Routes = [
       },
       {
         canActivate: [AuthGuard],
+        component: SetorComponent,
+        path: 'setor'
+      },
+      {
+        canActivate: [AuthGuard],
+        component: AprovadorComponent,
+        path: 'aprovador'
+      },
+      {
+        canActivate: [AuthGuard],
         component: DashboardComponent,
         path: 'dashboard'
+      },
+      {
+        canActivate: [AuthGuard],
+        component: RegisterComponent,
+        path: 'register'
       }
     ]
   },
@@ -37,10 +54,6 @@ const routes: Routes = [
   {
     component: LoginComponent,
     path: 'login'
-  },
-  {
-    component: RegisterComponent,
-    path: 'register'
   }
 ];
 

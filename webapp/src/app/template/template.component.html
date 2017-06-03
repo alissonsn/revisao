@@ -1,20 +1,23 @@
 <body class="skin-blue sidebar-mini">
 
-<div class="wrapper">
-  <app-header></app-header>
+	<div class="wrapper">
+		
+		<app-header></app-header>
 
-  <div class="content-wrapper">
-    <section class="content">
-      <div class="box box-default">
-        <div class="box-body">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-    </section>
-  </div>
-  
-  <app-footer></app-footer>
+		<app-menu></app-menu>
 
-</div>
+		<div class="content-wrapper">
+			<section class="content">
+				<div class="box box-default">
+					<div class="box-body">
+						<router-outlet></router-outlet>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<app-footer></app-footer>
+
+	</div>
 
 </body>

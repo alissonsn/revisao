@@ -23,6 +23,7 @@ import {LoginComponent} from './login/login.component';
 import {TemplateComponent} from './template/template.component';
 import {HeaderComponent} from './template/header/header.component';
 import {FooterComponent} from './template/footer/footer.component';
+import {MenuComponent} from './template/menu/menu.component';
 import {AuthGuard} from './_guard/auth.guard';
 import {AuthService} from './_guard/auth.service';
 import {InterceptedHttp} from './_util/interceptedHttp';
@@ -49,6 +50,7 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     TemplateComponent,
     HeaderComponent,
     FooterComponent,
+    MenuComponent,
     LoginComponent,
     UsuariosComponent,
     RegisterComponent,
