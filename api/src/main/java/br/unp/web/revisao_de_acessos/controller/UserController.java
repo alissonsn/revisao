@@ -1,7 +1,7 @@
 package br.unp.web.revisao_de_acessos.controller;
 
 import br.unp.web.revisao_de_acessos.entity.Usuario;
-import br.unp.web.revisao_de_acessos.service.UsuarioDetailsServiceImpl;
+import br.unp.web.revisao_de_acessos.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -13,10 +13,10 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("api/users")
 public class UserController {
-    private final UsuarioDetailsServiceImpl userDetailsService;
+    private final UsuarioService userDetailsService;
 
     @Autowired
-    public UserController(UsuarioDetailsServiceImpl userDetailsService) {
+    public UserController(UsuarioService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -27,7 +27,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> save(@RequestBody @Valid Usuario user) {
-        userDetailsService.setUser(user);
+        userDetailsService.save(user);
         return ResponseEntity.ok(user);
     }
 

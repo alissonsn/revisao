@@ -38,7 +38,15 @@ export class RevisaoComponent implements OnInit, OnDestroy {
   }
 
   cancelar() {
-    this.router.navigate(['/']);
+    MyUtil.confirm('Deseja realmente cancelar esta operação? Todos os dados serão perdidos.', this);
+  }
+
+  _yes() {
+    this.router.navigate(['/dashboard']);
+  }
+
+  _no() {
+
   }
 
   ngOnDestroy(): void {

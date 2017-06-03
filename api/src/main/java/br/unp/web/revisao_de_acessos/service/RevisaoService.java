@@ -9,12 +9,12 @@ import br.unp.web.revisao_de_acessos.entity.Revisao;
 import br.unp.web.revisao_de_acessos.repository.RevisaoRepository;
 
 @Service
-public class RevisaoServiceImpl {
+public class RevisaoService {
 
     private final RevisaoRepository revisaoRepository;
 
     @Autowired
-    public RevisaoServiceImpl(RevisaoRepository revisaoRepository) {
+    public RevisaoService(RevisaoRepository revisaoRepository) {
         this.revisaoRepository = revisaoRepository;
     }
 

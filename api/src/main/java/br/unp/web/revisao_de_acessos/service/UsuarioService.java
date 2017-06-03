@@ -17,12 +17,12 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class UsuarioDetailsServiceImpl implements UserDetailsService {
+public class UsuarioService implements UserDetailsService {
 
     private final UsuarioRepository usuarioRepository;
 
     @Autowired
-    public UsuarioDetailsServiceImpl(UsuarioRepository userRepository) {
+    public UsuarioService(UsuarioRepository userRepository) {
         this.usuarioRepository = userRepository;
     }
 
@@ -30,7 +30,6 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return UserFactory.create(getUser(username));
     }
-
 
     @Transactional(readOnly = true)
     public Usuario getUser(String username) {
@@ -41,29 +40,26 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
             user = usuarioRepository.findByUsername(username);
         }
         if(user==null){
-            throw new RuntimeException("Usuario ("+username+") não Localizado");
+            throw new RuntimeException("Usuario ("+username+") não foi encontrado");
         }
         return user;
     }
 
-
     private Usuario getAdmin() {
         Usuario user = new Usuario();
         user.setUsername("admin");
-        user.setPassword("$2a$10$jbfBfx4zmbtPzgsB0QFudut6cHWUHwYH8spzDVGHldrdbXyKCSWOa");//admin criptgrafado
+        user.setPassword("$2a$10$jbfBfx4zmbtPzgsB0QFudut6cHWUHwYH8spzDVGHldrdbXyKCSWOa");
         user.setAuthorities("ADMIN,ROOT");
         return user;
     }
-
 
     @Transactional(readOnly = true)
     public List<Usuario> getList() {
         return usuarioRepository.findAll();
     }
 
-
     @Transactional(propagation = Propagation.REQUIRED)
-    public void setUser(Usuario user){
+    public void save(Usuario user){
         if(user.getId()==null || user.getId().equals(0)){
             if(usuarioRepository.findByUsername(user.getUsername())!=null || user.getPassword().equalsIgnoreCase("admin")){
                 throw new RuntimeException("Login já está em uso");
@@ -74,16 +70,11 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
         usuarioRepository.save(user);
     }
 
-
     @Transactional(propagation = Propagation.REQUIRED)
     public void updatePassword(Usuario user){
         user.setLastPasswordReset(new Date());
         user.setPassword(Util.enconder(user.getPassword()));
         usuarioRepository.save(user);
     }
-
-
-
-
 
 }
