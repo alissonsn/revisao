@@ -35,8 +35,11 @@ import {RegisterService} from './register/register.service';
 import {RevisaoComponent} from './revisao/revisao.component';
 import {RevisaoService} from './revisao/revisao.service';
 import {SetorComponent} from './setor/setor.component';
+import {SetorService} from './setor/setor.service';
 import {AprovadorComponent} from './aprovador/aprovador.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import { SetorlistComponent } from './setorlist/setorlist.component';
+import { AprovadorlistComponent } from './aprovadorlist/aprovadorlist.component';
 
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, auth: AuthService): Http {
@@ -57,7 +60,9 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     RevisaoComponent,
     SetorComponent,
     AprovadorComponent,
-    DashboardComponent
+    DashboardComponent,
+    SetorlistComponent,
+    AprovadorlistComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,7 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     SharedModule,
     PasswordModule
   ],
-  providers: [AuthGuard, LoginService, AuthService, UsuariosService, RegisterService, RevisaoService,
+  providers: [AuthGuard, LoginService, AuthService, UsuariosService, RegisterService, RevisaoService, SetorService,
     {
       provide: Http,
       useFactory: httpFactory,

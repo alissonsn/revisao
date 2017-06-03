@@ -1,3 +1,22 @@
-<p>
-  setor works!
-</p>
+<form #f="ngForm" class="register-body">
+  <div class="my__card register-panel ui-fluid">
+    <div class="ui-g">
+      <div class="ui-g-12">
+	    <h3 class="first">Nome do Setor</h3>
+        <input type="text" autocomplete="off" name="nome" required [(ngModel)]="setor.nome" autofocus
+               #nome
+               (keyup.enter)="register()"
+               class="ui-inputtext ui-corner-all ui-state-default ui-widget ng-dirty ng-invalid">
+
+      </div>
+      <div class="ui-g-6">
+      </div>
+      <div class="ui-g-3">
+        <button pButton type="button" (click)="salvar()" class="ui-button-success" label="Registrar"></button>
+      </div>
+      <div class="ui-g-3">
+        <button pButton type="button" (click)="cancelar()" class="ui-button-danger" label="Cancelar"></button>
+      </div>
+    </div>
+  </div>
+</form>

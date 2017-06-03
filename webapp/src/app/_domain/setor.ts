@@ -1,5 +1,6 @@
 export class Setor {
 
-  constructor(public nome?: string) {
+  constructor(public id?: number,
+              public nome?: string) {
   }
 }
