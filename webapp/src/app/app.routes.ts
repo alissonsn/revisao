@@ -9,6 +9,7 @@ import {RegisterComponent} from './register/register.component';
 import {RevisaoComponent} from './revisao/revisao.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {SetorComponent} from './setor/setor.component';
+import {SetorlistComponent} from './setorlist/setorlist.component';
 import {AprovadorComponent} from './aprovador/aprovador.component';
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: SetorComponent,
         path: 'setor'
+      },
+      {
+        canActivate: [AuthGuard],
+        component: SetorlistComponent,
+        path: 'setorlist'
       },
       {
         canActivate: [AuthGuard],

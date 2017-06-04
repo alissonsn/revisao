@@ -29,15 +29,16 @@ public class SetorController {
         this.setorService = setorService;
     }
 
+    @RequestMapping( value="listar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<?> getList() {
+    	return ResponseEntity.ok(setorService.getList());
+    }
+    
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> register(@RequestBody @Valid Setor revisao) {
     	setorService.save(revisao);
         return ResponseEntity.ok(revisao);
     }
     
-    @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<?> getList() {
-        return ResponseEntity.ok(setorService.getList());
-    }
 
 }
