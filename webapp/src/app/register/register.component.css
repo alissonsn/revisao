@@ -6,9 +6,9 @@
 .register-panel {
   text-align: center;
   width: 550px;
-  margin: 100px auto 0 auto; }
+  margin: 70px auto 0 auto; }
 .register-panel .ui-g .ui-g-12 {
-  padding: 25px 40px; }
+  padding: 10px 40px; }
 .register-panel .ui-g .ui-g-12 .ui-button {
   margin-bottom: 20px; }
 .register-panel .ui-button:hover {

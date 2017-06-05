@@ -49,7 +49,7 @@ public class UsuarioService implements UserDetailsService {
         Usuario user = new Usuario();
         user.setUsername("admin");
         user.setPassword("$2a$10$jbfBfx4zmbtPzgsB0QFudut6cHWUHwYH8spzDVGHldrdbXyKCSWOa");
-        user.setAuthorities("ADMIN,ROOT");
+        user.setAuthorities("ROLE_ADMIN");
         return user;
     }
 
@@ -67,6 +67,7 @@ public class UsuarioService implements UserDetailsService {
             user.setPassword(Util.enconder(user.getPassword()));
         }
         
+        user.setAuthorities("ROLE_USER");
         usuarioRepository.save(user);
     }
 
