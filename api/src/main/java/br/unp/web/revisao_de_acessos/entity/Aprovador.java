@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @Entity
 @Table(name = "setor")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AprovadorSetor {
+public class Aprovador {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

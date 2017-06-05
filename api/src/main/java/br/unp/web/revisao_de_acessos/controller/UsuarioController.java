@@ -12,17 +12,22 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/users")
-public class UserController {
+public class UsuarioController {
     private final UsuarioService userDetailsService;
 
     @Autowired
-    public UserController(UsuarioService userDetailsService) {
+    public UsuarioController(UsuarioService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
     @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<?> getList() {
         return ResponseEntity.ok(userDetailsService.getList());
+    }
+    
+    @RequestMapping(value = "pesquisar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<?> getList(@RequestParam("nome") String nome) {
+        return ResponseEntity.ok(userDetailsService.getList(nome));
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -3,9 +3,14 @@ package br.unp.web.revisao_de_acessos.service;
 import br.unp.web.revisao_de_acessos.entity.Usuario;
 import br.unp.web.revisao_de_acessos.repository.UsuarioRepository;
 import br.unp.web.revisao_de_acessos.security.model.factory.UserFactory;
+import br.unp.web.revisao_de_acessos.security.model.security.SecUser;
 import br.unp.web.revisao_de_acessos.util.Util;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -57,6 +62,11 @@ public class UsuarioService implements UserDetailsService {
     public List<Usuario> getList() {
         return usuarioRepository.findAll();
     }
+    
+    @Transactional(readOnly = true)
+    public List<Usuario> getList(String nome) {
+        return usuarioRepository.findByUsername(nome, new Sort(Sort.Direction.DESC, "username"));
+    }
 
     @Transactional(propagation = Propagation.REQUIRED)
     public void save(Usuario user){
@@ -76,6 +86,18 @@ public class UsuarioService implements UserDetailsService {
         user.setLastPasswordReset(new Date());
         user.setPassword(Util.enconder(user.getPassword()));
         usuarioRepository.save(user);
+    }
+    
+    public Usuario getUsuarioLogado() {
+    	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+          return null;
+        }
+        
+        Long id = ((SecUser) authentication.getPrincipal()).getId();
+
+        return usuarioRepository.findById(id);
     }
 
 }

@@ -11,6 +11,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {SetorComponent} from './setor/setor.component';
 import {SetorlistComponent} from './setorlist/setorlist.component';
 import {AprovadorComponent} from './aprovador/aprovador.component';
+import {AprovadorlistComponent} from './aprovadorlist/aprovadorlist.component';
 
 const routes: Routes = [
   // logged routes
@@ -43,6 +44,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: AprovadorComponent,
         path: 'aprovador'
+      },
+      {
+        canActivate: [AuthGuard],
+        component: AprovadorlistComponent,
+        path: 'aprovadorlist'
       },
       {
         canActivate: [AuthGuard],

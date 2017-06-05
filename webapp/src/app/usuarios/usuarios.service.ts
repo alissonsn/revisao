@@ -19,5 +19,4 @@ export class UsuariosService {
       .catch(MyUtil.handleError);
   }
 
-
 }
