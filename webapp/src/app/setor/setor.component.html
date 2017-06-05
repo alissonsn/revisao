@@ -1,21 +1,22 @@
-<form #f="ngForm" class="register-body">
-  <div class="my__card register-panel ui-fluid">
+<form #f="ngForm" class="setor-body">
+  <div class="my__card setor-panel ui-fluid">
     <div class="ui-g">
       <div class="ui-g-12">
-	    <h3 class="first">Nome do Setor</h3>
+	    <label>Nome do Setor:</label>
         <input type="text" autocomplete="off" name="nome" required [(ngModel)]="setor.nome" autofocus
-               #nome
-               (keyup.enter)="register()"
-               class="ui-inputtext ui-corner-all ui-state-default ui-widget ng-dirty ng-invalid">
+               #nome size="92" 
+               (keyup.enter)="register()">
 
       </div>
-      <div class="ui-g-6">
+      <div class="ui-g-2">
       </div>
-      <div class="ui-g-3">
+      <div class="ui-g-4">
         <button pButton type="button" (click)="salvar()" class="ui-button-success" label="Registrar"></button>
       </div>
-      <div class="ui-g-3">
+      <div class="ui-g-4">
         <button pButton type="button" (click)="cancelar()" class="ui-button-danger" label="Cancelar"></button>
+      </div>
+      <div class="ui-g-2">
       </div>
     </div>
   </div>

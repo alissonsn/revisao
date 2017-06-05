@@ -16,25 +16,27 @@
                #status
                (keyup.enter)="titulo.focus()">
       
-      	<br/><br/><br/>
+      	<br/><br/>
         <label>Título:</label>
         <input type="text" size="100" autocomplete="off" name="titulo" required [(ngModel)]="revisao.titulo" autofocus
                #titulo>
         
-        <br/><br/><br/>
+        <br/><br/>
         <label>Revisão Ativa?</label>
         <input type="radio" name="ativo" value="true" [(ngModel)]="revisao.ativo"/> Sim
 		<input type="radio" name="ativo" value="false" [(ngModel)]="revisao.ativo"/>  Não
 
       </div>
       
-      <div class="ui-g-8" style="text-align: center;">
-      </div>
       <div class="ui-g-2" style="text-align: center;">
+      </div>
+      <div class="ui-g-4" style="text-align: center;">
      	<button pButton type="button" (click)="salvar()" class="ui-button-success" label="Salvar"></button>
       </div>
-      <div class="ui-g-2" style="text-align: center;">
+      <div class="ui-g-4" style="text-align: center;">
      	<button pButton type="button" (click)="cancelar()" class="ui-button-danger" label="Cancelar"></button>
+      </div>
+      <div class="ui-g-2" style="text-align: center;">
       </div>
     </div>
   </div>
