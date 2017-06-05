@@ -25,11 +25,6 @@ public class UsuarioController {
         return ResponseEntity.ok(userDetailsService.getList());
     }
     
-    @RequestMapping(value = "pesquisar", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<?> getList(@RequestParam("nome") String nome) {
-        return ResponseEntity.ok(userDetailsService.getList(nome));
-    }
-
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> save(@RequestBody @Valid Usuario user) {
         userDetailsService.save(user);

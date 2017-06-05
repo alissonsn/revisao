@@ -3,7 +3,7 @@
     <div class="ui-g">
       <div class="ui-g-12">
       	
-      	<label>Data de Início:</label>
+      	<label>Data de Inicio:</label>
       	<input type="date" id="exampleInput" name="Inicio" [(ngModel)]="revisao.inicio"
        		placeholder="yyyy-MM-dd" required />
        	
@@ -17,14 +17,14 @@
                (keyup.enter)="titulo.focus()">
       
       	<br/><br/>
-        <label>Título:</label>
+        <label>Titulo:</label>
         <input type="text" size="100" autocomplete="off" name="titulo" required [(ngModel)]="revisao.titulo" autofocus
                #titulo>
         
         <br/><br/>
-        <label>Revisão Ativa?</label>
+        <label>Revisao Ativa?</label>
         <input type="radio" name="ativo" value="true" [(ngModel)]="revisao.ativo"/> Sim
-		<input type="radio" name="ativo" value="false" [(ngModel)]="revisao.ativo"/>  Não
+		<input type="radio" name="ativo" value="false" [(ngModel)]="revisao.ativo"/>  Nao
 
       </div>
       
