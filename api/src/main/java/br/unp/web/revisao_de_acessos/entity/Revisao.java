@@ -17,6 +17,7 @@ import java.util.Date;
 public class Revisao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_revisao")
     private Long id;
     
     @NotBlank(message = "O Título da Revisão é obrigatório")

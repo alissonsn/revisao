@@ -23,12 +23,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  *
  */
 @Entity
-@Table(name = "setor")
+@Table(name = "aprovador")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Aprovador {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_aprovador")
     private Long id;
 	
 	@ManyToOne(fetch=FetchType.EAGER)

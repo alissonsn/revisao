@@ -15,13 +15,17 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_usuario")
     private Long id;
+    
     @NotBlank(message = "O Nome do Usuário é Obrigatório")
     @Size(max = 12, message = "O tamanho do nome deve estar entre 1 e 12")
     private String username;
+    
     @NotBlank(message = "A Senha do Usuário é Obrigatória")
     @Size(message = "O tamanho do nome deve estar entre 1 e 12")
     private String password;
+    
     @Email
     @Size(max = 120, message = "O email deve conter no máximo 120 caracteres")
     private String email;

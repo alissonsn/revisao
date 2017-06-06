@@ -5,6 +5,7 @@ package br.unp.web.revisao_de_acessos.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,6 +30,7 @@ public class Setor {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_setor")
     private Long id;
     
     @NotBlank(message = "O nome do setor é um campo obrigatório")
