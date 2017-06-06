@@ -1,5 +1,7 @@
 package br.unp.web.revisao_de_acessos.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,6 +23,11 @@ public class RevisaoService {
     @Transactional(propagation = Propagation.REQUIRED)
     public void save(Revisao revisao){
         revisaoRepository.save(revisao);
+    }
+    
+    @Transactional(readOnly = true)
+    public List<Revisao> getList() {
+        return revisaoRepository.findAll();
     }
 
 }

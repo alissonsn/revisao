@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -27,6 +28,8 @@ public class Usuario {
     private Date lastPasswordReset;
     private String authorities;
 
+    @OneToMany(mappedBy="usuario", fetch=FetchType.EAGER)
+    private List<Aprovador> aprovadorSetores;
 
     public Usuario() {
         super();
@@ -112,4 +115,14 @@ public class Usuario {
     public String toString() {
         return "";
     }
+
+
+	public List<Aprovador> getAprovadorSetores() {
+		return aprovadorSetores;
+	}
+
+
+	public void setAprovadorSetores(List<Aprovador> aprovadorSetores) {
+		this.aprovadorSetores = aprovadorSetores;
+	}
 }

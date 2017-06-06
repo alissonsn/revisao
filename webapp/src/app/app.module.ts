@@ -41,6 +41,7 @@ import {AprovadorService} from './aprovador/aprovador.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {SetorlistComponent} from './setorlist/setorlist.component';
 import {AprovadorlistComponent} from './aprovadorlist/aprovadorlist.component';
+import { RevisaolistComponent } from './revisaolist/revisaolist.component';
 
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, auth: AuthService): Http {
@@ -63,7 +64,8 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     AprovadorComponent,
     DashboardComponent,
     SetorlistComponent,
-    AprovadorlistComponent
+    AprovadorlistComponent,
+    RevisaolistComponent
   ],
   imports: [
     BrowserModule,

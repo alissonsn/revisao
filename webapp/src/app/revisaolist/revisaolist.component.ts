@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+
 import {Subject} from 'rxjs/Subject';
 
-import {SetorService} from '../setor/setor.service';
-import {Setor} from '../_domain/setor';
+import {RevisaoService} from '../revisao/revisao.service';
+import {Revisao} from '../_domain/revisao';
 import {MyUtil} from '../_util/my.util';
 
 @Component({
-  selector: 'app-setorlist',
-  templateUrl: './setorlist.component.html',
-  styleUrls: ['./setorlist.component.css']
+  selector: 'app-revisaolist',
+  templateUrl: './revisaolist.component.html',
+  styleUrls: ['./revisaolist.component.css']
 })
-export class SetorlistComponent implements OnInit {
+export class RevisaolistComponent implements OnInit {
 
-  list: Setor[];
+  list: Revisao[];
   private ngUnsubscribe: Subject<void>;
 
-  constructor(private setorService: SetorService) {
+  constructor(private revisaoService: RevisaoService) {
   }
 
   ngOnInit() {
     this.list = [];
     this.ngUnsubscribe = new Subject<void>();
-    this.setorService.getList()
+    this.revisaoService.getList()
       .takeUntil(this.ngUnsubscribe)
       .subscribe(
         obj => this.list = obj,

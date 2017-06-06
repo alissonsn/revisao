@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.unp.web.revisao_de_acessos.entity.Setor;
-import br.unp.web.revisao_de_acessos.service.SetorService;
+import br.unp.web.revisao_de_acessos.entity.Aprovador;
+import br.unp.web.revisao_de_acessos.service.AprovadorService;
 
 /**
  * 
@@ -22,23 +22,22 @@ import br.unp.web.revisao_de_acessos.service.SetorService;
 @RestController
 @RequestMapping("api/aprovador")
 public class AprovadorController {
-    private final SetorService setorService;
+    private final AprovadorService aprovadorService;
 
     @Autowired
-    public AprovadorController(SetorService setorService) {
-        this.setorService = setorService;
+    public AprovadorController(AprovadorService setorService) {
+        this.aprovadorService = setorService;
     }
 
     @RequestMapping( value="listar", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<?> getList() {
-    	return ResponseEntity.ok(setorService.getList());
+    	return ResponseEntity.ok(aprovadorService.getList());
     }
     
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> register(@RequestBody @Valid Setor revisao) {
-    	setorService.save(revisao);
-        return ResponseEntity.ok(revisao);
+    public ResponseEntity<?> register(@RequestBody @Valid Aprovador aprovador) {
+    	aprovadorService.save(aprovador);
+        return ResponseEntity.ok(aprovador);
     }
     
-
 }

@@ -19,5 +19,11 @@ export class RevisaoService {
       .catch(MyUtil.handleError);
   }
 
+  getList(): Observable<Revisao[]> {
+    return this.http.get(MyUtil.url(this.path+'/listar'))
+      .map(MyUtil.extrairDados)
+      .catch(MyUtil.handleError);
+  }
+
 
 }
