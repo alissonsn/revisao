@@ -32,17 +32,7 @@ import {UsuariosComponent} from './usuarios/usuarios.component';
 import {UsuariosService} from './usuarios/usuarios.service';
 import {RegisterComponent} from './register/register.component';
 import {RegisterService} from './register/register.service';
-import {RevisaoComponent} from './revisao/revisao.component';
-import {RevisaoService} from './revisao/revisao.service';
-import {SetorComponent} from './setor/setor.component';
-import {SetorService} from './setor/setor.service';
-import {AprovadorComponent} from './aprovador/aprovador.component';
-import {AprovadorService} from './aprovador/aprovador.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {SetorlistComponent} from './setorlist/setorlist.component';
-import {AprovadorlistComponent} from './aprovadorlist/aprovadorlist.component';
-import { RevisaolistComponent } from './revisaolist/revisaolist.component';
-
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, auth: AuthService): Http {
   return new InterceptedHttp(xhrBackend, requestOptions, auth);
@@ -59,13 +49,7 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     LoginComponent,
     UsuariosComponent,
     RegisterComponent,
-    RevisaoComponent,
-    SetorComponent,
-    AprovadorComponent,
-    DashboardComponent,
-    SetorlistComponent,
-    AprovadorlistComponent,
-    RevisaolistComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +67,7 @@ export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptio
     PasswordModule
   ],
   providers: [AuthGuard, LoginService, AuthService, UsuariosService,
-              RegisterService, RevisaoService, SetorService, AprovadorService,
+              RegisterService,
     {
       provide: Http,
       useFactory: httpFactory,
