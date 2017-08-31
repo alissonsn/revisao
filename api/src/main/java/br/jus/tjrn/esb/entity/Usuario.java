@@ -32,9 +32,6 @@ public class Usuario {
     private Date lastPasswordReset;
     private String authorities;
 
-    @OneToMany(mappedBy="usuario", fetch=FetchType.EAGER)
-    private List<Aprovador> aprovadorSetores;
-
     public Usuario() {
         super();
     }
@@ -120,13 +117,4 @@ public class Usuario {
         return "";
     }
 
-
-	public List<Aprovador> getAprovadorSetores() {
-		return aprovadorSetores;
-	}
-
-
-	public void setAprovadorSetores(List<Aprovador> aprovadorSetores) {
-		this.aprovadorSetores = aprovadorSetores;
-	}
 }

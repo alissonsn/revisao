@@ -88,9 +88,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/register/**").permitAll()
                 
 //               Somente ROLE_ADMIN realizam essas operações 
-                .antMatchers("/api/setor/**").access("hasRole('ROLE_ADMIN')")
-                
                 .antMatchers("/api/**").authenticated();
+        
         httpSecurity
                 .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
     }
