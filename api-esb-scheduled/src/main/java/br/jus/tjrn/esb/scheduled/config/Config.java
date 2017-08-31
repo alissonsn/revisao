@@ -1,7 +1,6 @@
 package br.jus.tjrn.esb.scheduled.config;
 
 import br.jus.tjrn.esb.scheduled.Application;
-import br.jus.tjrn.esb.scheduled.gui.Systray;
 import br.jus.tjrn.esb.scheduled.util.Constantes;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +26,9 @@ public class Config {
 
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
-        int porta = Integer.parseInt(env.getProperty(Constantes.PORT_PROP, Constantes.DEFAULT_PORT));
+        int porta = Integer.parseInt(env.getProperty(Constantes.PORT_PROP));
         return (container -> container.setPort(porta));
     }
-
-
-    @Bean
-    public Systray frame() {
-        return new Systray();
-    }
-
     
     @Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
