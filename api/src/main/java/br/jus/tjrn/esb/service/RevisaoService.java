@@ -1,0 +1,33 @@
+package br.jus.tjrn.esb.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.jus.tjrn.esb.entity.Revisao;
+import br.jus.tjrn.esb.repository.RevisaoRepository;
+
+@Service
+public class RevisaoService {
+
+    private final RevisaoRepository revisaoRepository;
+
+    @Autowired
+    public RevisaoService(RevisaoRepository revisaoRepository) {
+        this.revisaoRepository = revisaoRepository;
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void save(Revisao revisao){
+        revisaoRepository.save(revisao);
+    }
+    
+    @Transactional(readOnly = true)
+    public List<Revisao> getList() {
+        return revisaoRepository.findAll();
+    }
+
+}
