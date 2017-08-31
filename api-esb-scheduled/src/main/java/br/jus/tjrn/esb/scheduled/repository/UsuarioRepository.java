@@ -1,4 +1,4 @@
-package br.jus.tjrn.esb.repository;
+package br.jus.tjrn.esb.scheduled.repository;
 
 import java.util.List;
 

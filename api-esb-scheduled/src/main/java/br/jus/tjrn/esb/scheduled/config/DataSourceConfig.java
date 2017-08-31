@@ -1,9 +1,11 @@
 package br.jus.tjrn.esb.scheduled.config;
 
-import br.jus.tjrn.esb.repository.SQL;
-
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
+import br.jus.tjrn.esb.scheduled.entity.Usuario;
+import br.jus.tjrn.esb.scheduled.repository.SQL;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -46,7 +48,7 @@ public class DataSourceConfig {
     public EntityManagerFactory entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(jpaVendorAdapter());
-        factory.setPackagesToScan("br.jus.tjrn.esb.entity");
+        factory.setPackagesToScan(Usuario.class.getPackage().getName());
         factory.setDataSource(dt());
         factory.afterPropertiesSet();
         return factory.getObject();

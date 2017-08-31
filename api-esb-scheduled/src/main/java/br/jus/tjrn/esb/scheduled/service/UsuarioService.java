@@ -1,7 +1,7 @@
 package br.jus.tjrn.esb.scheduled.service;
 
-import br.jus.tjrn.esb.repository.UsuarioRepository;
 import br.jus.tjrn.esb.scheduled.entity.Usuario;
+import br.jus.tjrn.esb.scheduled.repository.UsuarioRepository;
 import br.jus.tjrn.esb.scheduled.security.model.factory.UserFactory;
 import br.jus.tjrn.esb.scheduled.security.model.security.SecUser;
 import br.jus.tjrn.esb.scheduled.util.Util;
